@@ -1,20 +1,20 @@
-import {InputProps} from "@mui/material/Input";
-import {FilledInputProps} from "@mui/material/FilledInput";
-import {PopoverProps} from "@mui/material/Popover";
-import {OutlinedInputProps} from "@mui/material/OutlinedInput";
 import React from "react";
 
-export interface IconifyPickerProps<V, I> {
-  inputProps?: Omit<I, "inputComponent">;
-  popoverProps?: Omit<
-    PopoverProps,
-    "open" | "anchorEl" | "onClose" | "children"
-  >;
+export interface IconifyPickerProps {
+  inputProps?: {
+    style?: React.CSSProperties;
+    size?: "small" | "medium";
+    [key: string]: unknown;
+  };
+  popoverProps?: {
+    style?: React.CSSProperties;
+    [key: string]: unknown;
+  };
   value?: string | null;
   onChange?: (value: string | null, e: React.MouseEvent<HTMLElement>) => void;
   placeholderText?: string;
   slots?: {
-    loading?: React.ComponentType;
+    loading?: React.ComponentType<{count?: number}>;
     error?: React.ComponentType;
   };
   apiBaseUrl?: string | URL;
@@ -23,13 +23,9 @@ export interface IconifyPickerProps<V, I> {
   prefix?: string;
   category?: string;
   limit?: number;
-  variant?: V;
+  variant?: "standard" | "filled" | "outlined";
 }
 
-declare const IconifyPicker: React.FunctionComponent<
-  | IconifyPickerProps<"filled", FilledInputProps>
-  | IconifyPickerProps<"standard", InputProps>
-  | IconifyPickerProps<"outlined", OutlinedInputProps>
->;
+declare const IconifyPicker: React.FunctionComponent<IconifyPickerProps>;
 
 export default IconifyPicker;

@@ -1,8 +1,7 @@
 import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
 import react from "eslint-plugin-react";
 import globals from "globals";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -27,5 +26,4 @@ export default tseslint.config(
       "react/jsx-uses-vars": "error",
     },
   },
-  eslintPluginPrettierRecommended,
 );

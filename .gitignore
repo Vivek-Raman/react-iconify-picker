@@ -133,3 +133,4 @@ dist
 exampledist
 
 *storybook.log
+storybook-static/

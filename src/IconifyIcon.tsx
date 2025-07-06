@@ -1,5 +1,4 @@
-import React, {Fragment, MouseEvent, useMemo, useState} from "react";
-import IconButton from "@mui/material/IconButton";
+import {Fragment, MouseEvent, useMemo, useState} from "react";
 import loadingLoopIcon from "./assets/line-md--loading-alt-loop.svg";
 
 export interface IconifyIconProps {
@@ -22,20 +21,75 @@ const IconifyIcon = (props: IconifyIconProps) => {
 
   const handleLoadIcon = () => setLoading(false);
 
+  const buttonStyle = {
+    border: "none",
+    background: "transparent",
+    cursor: "pointer",
+    padding: "4px",
+    borderRadius: "4px",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    minWidth: "32px",
+    minHeight: "32px",
+    transition: "background-color 0.2s ease",
+  };
+
+  const buttonHoverStyle = {
+    backgroundColor: "rgba(0, 0, 0, 0.04)",
+  };
+
+  const disabledButtonStyle = {
+    ...buttonStyle,
+    cursor: "not-allowed",
+    opacity: 0.6,
+  };
+
   return (
     <Fragment>
       {loading && (
-        <IconButton disabled size="small">
-          <img src={loadingLoopIcon} />
-        </IconButton>
+        <button
+          disabled
+          style={disabledButtonStyle}
+          onMouseEnter={e => {
+            if (!loading) {
+              e.currentTarget.style.backgroundColor =
+                buttonHoverStyle.backgroundColor;
+            }
+          }}
+          onMouseLeave={e => {
+            if (!loading) {
+              e.currentTarget.style.backgroundColor = "transparent";
+            }
+          }}>
+          <img
+            src={loadingLoopIcon}
+            alt="Loading"
+            style={{width: "24px", height: "24px"}}
+          />
+        </button>
       )}
-      <IconButton onClick={props.onClick} size="small">
+      <button
+        onClick={props.onClick}
+        style={buttonStyle}
+        onMouseEnter={e => {
+          e.currentTarget.style.backgroundColor =
+            buttonHoverStyle.backgroundColor;
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.backgroundColor = "transparent";
+        }}>
         <img
           onLoad={handleLoadIcon}
           src={url}
-          style={loading ? {display: "none"} : undefined}
+          alt="Icon"
+          style={{
+            width: "24px",
+            height: "24px",
+            display: loading ? "none" : "block",
+          }}
         />
-      </IconButton>
+      </button>
     </Fragment>
   );
 };
