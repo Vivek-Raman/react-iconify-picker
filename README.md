@@ -1,8 +1,10 @@
-# @zunicornshift/mui-iconify-picker
+# rect-iconify-picker
+
+> Forked from @zunicornshift/mui-iconify-picker
 
 <p align="center">
-	<a href="https://github.com/zUnicornShift/mui-iconify-picker">
-			<img src="https://i.imgur.com/jKc5PtP.png" />
+	<a href="https://github.com/Vivek-Raman/react-iconify-picker">
+			<img src="https://i.imgur.com/5MuCWBo.png" />
 	</a>
 </p>
 
@@ -21,9 +23,12 @@ The `react` and `react-dom` are peer dependencies of this package. It means you 
 
 Then run the below commands based on your package manager.
 
+```sh
+npm install --save react-iconify-picker
 ```
-npm install --save @zunicornshift/mui-iconify-picker #NPM
-yarn add @zunicornshift/mui-iconify-picker           #Yarn
+
+```sh
+yarn add react-iconify-picker
 ```
 
 ## Usage
@@ -58,3 +63,7 @@ without any customizations.
 | `slots.error`     | `React.ComponentType`                                 | A react component to display when an error occurred when searching |
 
 All the props are optional.
+
+Huge thanks to the original author of this component! I just wanted to remove the dependency on MUI for my own use.
+
+> Forked from @zunicornshift/mui-iconify-picker
