@@ -1,6 +1,6 @@
 {
   "name": "react-iconify-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Iconify Icon selection component for React",
   "scripts": {
     "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
